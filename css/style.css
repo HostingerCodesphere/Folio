@@ -220,7 +220,7 @@ article p {
   transform: translateX(100vw) translateY(-100vh);
 }
 
-.experience {
+.skillset {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -229,7 +229,7 @@ article p {
   
 }
 
-.experience__skill {
+.skillset__skill {
   display: flex;
   flex-direction: column;
   padding: 1.2rem;
@@ -238,31 +238,31 @@ article p {
   width: fit-content;
 }
 
-.experience__skill div {
+.skillset__skill div {
   display: flex;
   align-items: center;
   width: 13.5rem;
 }
 
-.experience__skill div img {
+.skillset__skill div img {
   padding: 0;
   margin-right: 0.5rem;
 }
 
-.experience__skill div h2 {
+.skillset__skill div h2 {
   text-align: left;
 }
 
-.experience__skill div p {
+.skillset__skill div p {
   padding: 0;
 }
 
-.experience__skill div h2,
-.experience__skill div p {
+.skillset__skill div h2,
+.skillset__skill div p {
   font-size: 0.8rem;
 }
 
-.experience__skill div div {
+.skillset__skill div div {
   justify-content: space-between;
 }
 
