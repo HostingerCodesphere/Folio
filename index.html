@@ -18,19 +18,59 @@
 
 <body>
 
-  <div id="rat"></div>
+<div id="rat"></div>
 
 <script>
-  // Ripple
+  // Petir
   window.addEventListener("click", ev => {
-    let ripple = document.createElement("div")
-    ripple.classList.add("ripple");
-    ripple.style.top = ev.clientY + "px";
-    ripple.style.left = ev.clientX + "px";
-    document.body.appendChild(ripple);
-    ripple.addEventListener("animationend", () => ripple.remove());
+    let lightning = document.createElement("div");
+    lightning.classList.add("lightning");
+    lightning.style.top = ev.clientY + "px";
+    lightning.style.left = ev.clientX + "px";
+    document.body.appendChild(lightning);
+    lightning.addEventListener("animationend", () => lightning.remove());
   });
 </script>
+
+<style>
+  /* Mode Terang */
+  body.light-mode .lightning {
+    background: yellow;
+    box-shadow: 0 0 20px 10px yellow;
+  }
+
+  /* Mode Gelap */
+  body.dark-mode .lightning {
+    background: white;
+    box-shadow: 0 0 20px 10px white;
+  }
+
+  .lightning {
+    position: absolute;
+    width: 5px;
+    height: 100px;
+    background: yellow; /* Warna default */
+    box-shadow: 0 0 20px 10px yellow; /* Efek cahaya */
+    transform: translate(-50%, -50%) rotate(30deg);
+    animation: strike 0.3s ease-out;
+    pointer-events: none;
+  }
+
+  @keyframes strike {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+    50% {
+      height: 100px;
+      opacity: 1;
+    }
+    100% {
+      height: 0;
+      opacity: 0;
+    }
+  }
+</style>
 
 
   <div id="hero">
