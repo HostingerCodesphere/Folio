@@ -19,11 +19,6 @@
 <body>
 
 <div id="rat"></div>
-<div id="rat"></div>
-
-<script>
-  // Variabel untuk pen dan jalur gambar
-<div id="rat"></div>
 
 <script>
   window.addEventListener("click", ev => {
@@ -79,32 +74,7 @@
   body.dark-mode .splash {
     background: rgba(255, 255, 255, 0.6);
   }
-</style>  let isDrawing = false;
-  let pen, path;
-
-  // Mulai menggambar
-  window.addEventListener("mousedown", (ev) => {
-    isDrawing = true;
-
-    // Buat elemen jalur
-    path = document.createElement("div");
-    path.classList.add("path");
-    document.body.appendChild(path);
-
-    // Buat elemen pen
-    pen = document.createElement("div");
-    pen.classList.add("pen");
-    document.body.appendChild(pen);
-
-    // Mulai menggambar dari titik awal
-    updatePen(ev.clientX, ev.clientY);
-  });
-
-  // Menggambar ketika mouse bergerak
-  window.addEventListener("mousemove", (ev) => {
-    if (!isDrawing) return;
-    drawLine(ev.clientX, ev.clientY);
-
+</style>
 
   <div id="hero">
     <h5>Hello I'm</h5>
