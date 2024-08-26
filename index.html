@@ -23,7 +23,63 @@
 
 <script>
   // Variabel untuk pen dan jalur gambar
-  let isDrawing = false;
+<div id="rat"></div>
+
+<script>
+  window.addEventListener("click", ev => {
+    let splash = document.createElement("div");
+    splash.classList.add("splash");
+    splash.style.top = ev.clientY + "px";
+    splash.style.left = ev.clientX + "px";
+    document.body.appendChild(splash);
+    splash.addEventListener("animationend", () => splash.remove());
+  });
+</script>
+
+<style>
+  .splash {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 150, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: ripple 0.8s ease-out, fadeOut 0.8s ease-out;
+  }
+
+  @keyframes ripple {
+    from {
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+    }
+    to {
+      width: 200px;
+      height: 200px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  /* Mode Terang */
+  body.light-mode .splash {
+    background: rgba(0, 150, 255, 0.4);
+  }
+
+  /* Mode Gelap */
+  body.dark-mode .splash {
+    background: rgba(255, 255, 255, 0.6);
+  }
+</style>  let isDrawing = false;
   let pen, path;
 
   // Mulai menggambar
@@ -48,74 +104,6 @@
   window.addEventListener("mousemove", (ev) => {
     if (!isDrawing) return;
     drawLine(ev.clientX, ev.clientY);
-    updatePen(ev.clientX, ev.clientY);
-  });
-
-  // Akhiri menggambar
-  window.addEventListener("mouseup", () => {
-    isDrawing = false;
-    pen.remove();
-  });
-
-  function drawLine(x, y) {
-    const point = document.createElement("div");
-    point.classList.add("point");
-    point.style.left = x + "px";
-    point.style.top = y + "px";
-    path.appendChild(point);
-  }
-
-  function updatePen(x, y) {
-    pen.style.left = x + "px";
-    pen.style.top = y + "px";
-  }
-</script>
-
-<style>
-  .path {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  .point {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background-color: black;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .pen {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-  }
-
-  /* Mode Terang */
-  body.light-mode .point {
-    background-color: black;
-  }
-
-  body.light-mode .pen {
-    background-color: red;
-  }
-
-  /* Mode Gelap */
-  body.dark-mode .point {
-    background-color: white;
-  }
-
-  body.dark-mode .pen {
-    background-color: yellow;
-  }
-</style>
 
 
   <div id="hero">
