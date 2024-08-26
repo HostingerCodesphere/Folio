@@ -18,6 +18,19 @@
 
 <body>
 
+  <div id="rat"></div>
+
+<script>
+  // Ripple
+  window.addEventListener("click", ev => {
+    let ripple = document.createElement("div")
+    ripple.classList.add("ripple");
+    ripple.style.top = ev.clientY + "px";
+    ripple.style.left = ev.clientX + "px";
+    document.body.appendChild(ripple);
+    ripple.addEventListener("animationend", () => ripple.remove());
+  });
+</script>
 
 
   <div id="hero">
