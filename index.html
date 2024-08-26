@@ -22,11 +22,19 @@
 
 <script>
   window.addEventListener("click", ev => {
+    // Buat elemen splash
     let splash = document.createElement("div");
     splash.classList.add("splash");
     splash.style.top = ev.clientY + "px";
     splash.style.left = ev.clientX + "px";
+    
+    // Buat elemen logo
+    let logo = document.createElement("div");
+    logo.classList.add("logo");
+    
+    splash.appendChild(logo);
     document.body.appendChild(splash);
+    
     splash.addEventListener("animationend", () => splash.remove());
   });
 </script>
@@ -34,13 +42,24 @@
 <style>
   .splash {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
     background: rgba(0, 150, 255, 0.4);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    animation: ripple 0.8s ease-out, fadeOut 0.8s ease-out;
+    animation: ripple 1s ease-out, fadeOut 1s ease-out;
+  }
+
+  .logo {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('https://raw.githubusercontent.com/HostingerCodesphere/Folio/main/assets/portfolio-project/Logo.jpg') no-repeat center center;
+    background-size: contain;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
   }
 
   @keyframes ripple {
@@ -75,6 +94,7 @@
     background: rgba(255, 255, 255, 0.6);
   }
 </style>
+
 
   <div id="hero">
     <h5>Hello I'm</h5>
