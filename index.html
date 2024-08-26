@@ -18,64 +18,6 @@
 
 <body>
 
-  <div id="cat"></div>
-  <div id="rat"></div>
-
-  <script>
-
-    // Ripple
-    window.addEventListener("click", ev => {
-      let ripple = document.createElement("div")
-      ripple.classList.add("ripple");
-      ripple.style.top = ev.clientY + "px";
-      ripple.style.left = ev.clientX + "px";
-      document.body.appendChild(ripple);
-      ripple.addEventListener("animationend", () => ripple.remove())
-    });
-
-
-    // cat
-
-      const cat = document.getElementById('cat');
-      const runningGif = './assets/cat/running-run.gif';
-      const staticImage = './assets/cat/catani1.png';
-      
-
-      document.addEventListener('click', function (event) {
-        const clickX = event.clientX;
-        const clickY = event.clientY;
-
-        const catRect = cat.getBoundingClientRect();
-        const catX = catRect.left + catRect.width / 2;
-        const catY = catRect.top + catRect.height / 2;
-
-        const directionX = clickX - catX;
-        const directionY = clickY - catY;
-
-        const angle = Math.atan2(directionY, directionX);
-        const angleDegrees = angle * (180 / Math.PI);
-
-        moveSound.play();
-
-        cat.style.transform = `translate(-50%, -50%) rotate(${angleDegrees}deg) scaleX(-1)`;
-        cat.style.backgroundImage = `url(${runningGif})`;
-        moveCat(clickX, clickY, angleDegrees);
-      });
-
-      function moveCat(x, y, angleDegrees) {
-        cat.style.left = (x - 50) + 'px';
-        cat.style.top = (y - 50) + 'px';
-
-        setTimeout(() => {
-          cat.style.backgroundImage = `url(${staticImage})`;
-          cat.style.transform = `translate(-50%, -50%) rotate(${angleDegrees}deg) scaleX(-1)`; 
-        }, 1000);
-      }
-
-
-
-  </script>
-
 
 
   <div id="hero">
